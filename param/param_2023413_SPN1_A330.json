@@ -1,0 +1,26 @@
+{
+    "Device": {
+        "mode": "outside",
+        "model": "SPN1",
+        "reference": "CM",
+        "sensi_dhi_old": 1.0,
+        "sensi_ghi_old": 1.0,
+        "serial_num": "A330"
+    },
+    "InfluxDB": {
+        "bucket": "test",
+        "link": "test",
+        "org": "test",
+        "token": "test"
+    },
+    "Location": {
+        "TZ": 4,
+        "latitude": -20.9,
+        "longitude": 55.48
+    },
+    "operator": {
+        "firstname": "jonathan",
+        "lastname": "Razanajoelina",
+        "org": "LE2P"
+    }
+}

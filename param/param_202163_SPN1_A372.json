@@ -1,0 +1,26 @@
+{
+    "Device": {
+        "mode": "outside",
+        "model": "SPN1",
+        "reference": "CMP20/CMP21",
+        "sensi_dhi_old": 1.0,
+        "sensi_ghi_old": 1.0,
+        "serial_num": "A372"
+    },
+    "InfluxDB": {
+        "bucket": "g",
+        "link": "g",
+        "org": "g",
+        "token": "g"
+    },
+    "Location": {
+        "TZ": 4,
+        "latitude": -20.9,
+        "longitude": 55.48
+    },
+    "operator": {
+        "firstname": "Lwidjy",
+        "lastname": "Baraka",
+        "org": "LE2P"
+    }
+}
