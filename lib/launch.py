@@ -7,6 +7,7 @@ def launch():
     organisation = input("organisation:")
     latitude = float(input("latitude (default: -20.9): ") or "-20.9")
     longitude = float(input("longitude (default: 55.48): ") or "55.48")
+    altitude = float(input("altitude (default:90) ") or "90")
     TZ = int(input("TimeZone (default: 4): ") or "4")
 
     model = input("model:")
@@ -27,6 +28,7 @@ def launch():
         "Location":{
             "latitude": latitude,
             "longitude": longitude,
+            "altitude": altitude,
             "TZ": TZ
         },
         "operator":{

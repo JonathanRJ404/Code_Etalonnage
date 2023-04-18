@@ -21,7 +21,7 @@ def data_selection(file_json, tab_ref, tab_test):
     tab_selec = tab_selec.reset_index()
     
     # Calculate solar position
-    pos = solarposition(tab_selec, latitude=data_dict['Location']['latitude'], longitude=data_dict['Location']['longitude'], tz=data_dict['Location']['TZ'])
+    pos = solarposition(tab_selec, latitude=data_dict['Location']['latitude'], longitude=data_dict['Location']['longitude'], altitude=data_dict['Location']['altitude'], tz=data_dict['Location']['TZ'])
     pos = pos.reset_index()
     pos['azimuth'].loc[pos['azimuth'] > 180] = pos['azimuth'].loc[pos['azimuth'] > 180]-360  # Normalize -180/180
     tab_selec = pd.concat([tab_selec, pos], axis=1)

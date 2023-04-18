@@ -40,6 +40,8 @@ p1 = plot_irradiance(tab_ref, tab_test, titre='Measurement campaign')
 # Make a selection
 [tab_selec, kb, del_percent, noct, mean_temp, test_noct] = data_selection(file_json, tab_ref, tab_test)
 
+p21 =  plot_irradiance(tab_selec,tab_selec, titre='Measurement campaign')
+
 [tab_selec_qc, del_values, p2, p3] = bsrn_filter(tab_selec)
 
 # Vizualise the data after selection
@@ -51,7 +53,7 @@ p4 = plot_irradiance(tab_selec_qc, tab_selec_qc, titre='Measurement campaign aft
 # Plot the sky condition 
 p5 = sky_classification(kb)
 
-# Test 1 and test 2
+# Test 1 and test 2 j "verification of the 7 thermopieles"
 p6, p7 = difference_tot_diff(tab_selec_qc)
 
 # Determine the coefficient and offset of the linear regression line of GHI and DHI scatter plot
@@ -83,7 +85,7 @@ p17, p18= plot_diff(tab_calib)
 
 p19, p20 = dni_plot(tab_calib, 'after calibration')
 
-p = gridplot([[p1, p4], [p2, p3], [p5, None], [p6, p7], [p8, p9], [p10, p11], [p12, p13], [p14, p15], \
+p = gridplot([[p1, p4],[p21, None], [p2, p3], [p5, None], [p6, p7], [p8, p9], [p10, p11], [p12, p13], [p14, p15], \
     [p16, None],[p17,p18],[p19,p20]],sizing_mode='scale_both')
 show(p)
 
