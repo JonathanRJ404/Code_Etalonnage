@@ -1,0 +1,21 @@
+{
+    "Device": {
+        "mode": "outdoor",
+        "model": "9849",
+        "reference": "456",
+        "sensi_dhi_old": 1.0,
+        "sensi_ghi_old": 1.0,
+        "serial_num": "9849"
+    },
+    "Location": {
+        "TZ": 4,
+        "altitude": 100.0,
+        "latitude": -20.9,
+        "longitude": 55.48
+    },
+    "operator": {
+        "firstname": "JONATHAN",
+        "lastname": "RAZANAJOELINA",
+        "org": "LE2P"
+    }
+}

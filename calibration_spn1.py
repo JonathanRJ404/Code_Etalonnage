@@ -1,3 +1,4 @@
+
 from lib import datafile as dtf
 from lib.bsrn_filter import bsrn_filter
 from lib.data_selection import data_selection
@@ -9,7 +10,7 @@ from lib.plot import plot_irradiance, plot_calibration_global, plot_validation_g
     plot_calibration_corr, plot_solpos, plot_irradiance_corr, plot_diff, dni_plot
 from lib.sky_classification import sky_classification
 from bokeh.plotting import output_file, show, gridplot
-from lib.csvtoinflux import csvtoinflux
+#from lib.csvtoinflux import csvtoinflux
 from lib.python_pdf import certificate
 from lib.launch import launch
 import json
@@ -65,7 +66,7 @@ p9 = plot_calibration_diffus(tab_selec_qc, a_d, b_d)
 [tab_calib, std_ghi, std_dhi] = calibration_validation(tab_selec_qc, a_g, b_g, a_d, b_d)
 
 # Envoie des données corrigées sur un serveur influxdb
-csvtoinflux(file_json, tab_calib)
+#csvtoinflux(file_json, tab_calib)
 
 # Plot the corrected scatter plot of GHI and DHI
 p10, p11 = plot_calibration_corr(tab_calib)
