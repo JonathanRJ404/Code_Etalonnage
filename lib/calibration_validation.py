@@ -36,10 +36,17 @@ def calibration_validation(tab, fa_ghi, offa_ghi, fa_dhi, offa_dhi):
 
     std_dhi = np.std(tab['erreur_dhi'])
     
-    del_values = del_values - len(tab)
+    del_values_ab = del_values - len(tab)
 
+    # nombres de valeurs calibrée où GHI < DHI
+    del_val_gd = del_values - del_values_ab -len(tab.loc[(tab.GHI_test > tab.DHI_test) & (tab.GHI_ref > tab.DHI_ref)])
     # enlever les lignes où GHI < DHI
     tab = tab.loc[(tab.GHI_test > tab.DHI_test) & (tab.GHI_ref > tab.DHI_ref)]
 
-    print(del_values, 'valeurs abérrantes ont été supprimés')
-    return tab, std_ghi, std_dhi
+    #kb calibre
+    kb_calib = (tab['GHI_test']-tab['DHI_test'])/tab['GHI_test']
+    
+    
+    
+    print(del_values_ab, 'valeurs abérrantes ont été supprimés')
+    return tab, std_ghi, std_dhi, kb_calib,del_values_ab, del_val_gd

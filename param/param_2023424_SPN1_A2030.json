@@ -1,11 +1,11 @@
 {
     "Device": {
-        "mode": "",
-        "model": "",
-        "reference": "",
+        "mode": "OUTDOOR CALIBRATION",
+        "model": "SPN1",
+        "reference": "CMP22",
         "sensi_dhi_old": 1.0,
         "sensi_ghi_old": 1.0,
-        "serial_num": ""
+        "serial_num": "A2030"
     },
     "InfluxDB": {
         "bucket": "",
@@ -14,14 +14,14 @@
         "token": ""
     },
     "Location": {
-        "TZ": 4,
+        "TZ": 0,
         "altitude": 90.0,
         "latitude": -20.9,
         "longitude": 55.48
     },
     "operator": {
-        "firstname": "",
-        "lastname": "",
-        "org": ""
+        "firstname": "JONATHAN",
+        "lastname": "RAZANAJOELINA",
+        "org": "LE2P"
     }
 }

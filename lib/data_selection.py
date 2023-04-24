@@ -35,16 +35,22 @@ def data_selection(file_json, tab_ref, tab_test):
 
     # nombres de valeurs nocturnes
     noct = len(tab_selec.loc[tab_selec['elevation'] < 0])
-    # test des valeurs nocturnes
+    # test des valeurs nocturnes supérieures à 6 W/m^2   
     test_noct = len(tab_selec.loc[(tab_selec['elevation'] < 0) & (tab_selec['GHI_test'] > 6)])
 
-    # enelever les valeurs nocturnes
+    # enelever les valeurs nocturnes 
+    val_10 = len(tab_selec.loc[(tab_selec['elevation'] > 0) & (tab_selec['GHI_test'] <= 10)])
     tab_selec = tab_selec.loc[(tab_selec['elevation'] > 0) & (tab_selec['GHI_test'] > 10)]
+    
 
+    # nombres de valeurs diurnes où GHI < DHI 
+    val_infG = len(tab_selec.loc[(tab_selec['GHI_test'] < tab_selec['DHI_test'])])
+    # nombres de valeurs diurnes où GHI > DHI  à enlever par rapport aux 2 jeux de données
+    val_diff  = len(tab_selec) - len(tab_selec.loc[(tab_selec.GHI_test > tab_selec.DHI_test) & (tab_selec.GHI_ref > tab_selec.DHI_ref)])
     # enlever les lignes où GHI < DHI
     tab_selec = tab_selec.loc[(tab_selec.GHI_test > tab_selec.DHI_test) & (tab_selec.GHI_ref > tab_selec.DHI_ref)]
-
-    delete_values = len(tab_ref) - len(tab_selec)  # deleted values
+    # deleted values
+    delete_values = len(tab_ref) - len(tab_selec)  
     del_percent = (100 * delete_values) / len(tab_ref)
 
     # Calculate kb
@@ -55,4 +61,4 @@ def data_selection(file_json, tab_ref, tab_test):
 
     tab_selec['TIMESTAMP'] = [datetime.strptime(date, "%Y-%m-%d %H:%M:%S") for date in tab_selec['TIMESTAMP']]
 
-    return tab_selec, kb, del_percent, noct, mean_temp, test_noct
+    return tab_selec, kb, del_percent, noct, mean_temp, test_noct, val_infG, val_10 , val_diff

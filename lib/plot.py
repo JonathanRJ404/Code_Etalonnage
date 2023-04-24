@@ -239,3 +239,20 @@ def dni_plot(tab, a):
     p2.dot(DNI_ref, (DNI_test-DNI_ref)/DNI_ref, color='black', legend_label='(DNI_test-DNI_ref)/DNI_ref')
 
     return p1, p2
+
+def temperature_plot(tab):
+    
+    """
+        Plot the outside temperature measurements of CMP22
+
+    """
+
+    x = np.arange(len(tab))
+    mean_temp = np.mean(tab['Temp'])
+    
+    titre = 'Outside temperature= ' + str(round(mean_temp,2))
+    p = figure(title= titre, x_axis_label='Time (min)', y_axis_label='Temperature (°C)')
+
+    p.line(x, tab['Temp'], legend_label='Temp', color='purple')
+    
+    return p

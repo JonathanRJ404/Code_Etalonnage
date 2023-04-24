@@ -14,7 +14,7 @@
         "token": ""
     },
     "Location": {
-        "TZ": 4,
+        "TZ": 0,
         "altitude": 90.0,
         "latitude": -20.9,
         "longitude": 55.48

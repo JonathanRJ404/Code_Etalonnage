@@ -11,7 +11,8 @@ def sky_classification(kb):
     """
     hist, edges = np.histogram(kb, density=True, bins=50)
 
-    p = figure(title='Direct fraction kb before calibration', x_axis_label='kb',
+
+    p = figure(title='Direct fraction kb', x_axis_label='kb',
                y_axis_label='density')
 
     p.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:],
